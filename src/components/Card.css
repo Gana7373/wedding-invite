@@ -1,0 +1,289 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Open Screen */
+.open-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a0000, #330000);
+}
+
+.open-btn {
+  padding: 16px 32px;
+  border-radius: 40px;
+  border: none;
+  background: gold;
+  color: #5a0000;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px gold;
+  transition: 0.3s;
+}
+
+.open-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Music Button */
+.music-control {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: gold;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 1000;
+  font-weight: bold;
+}
+
+/* Cinematic Background */
+.cinematic {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  animation: zoomBg 20s ease-in-out infinite alternate;
+}
+
+/* 🔥 Background Zoom */
+@keyframes zoomBg {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+/* Overlay (reduced blur issue fix) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
+/* Card */
+.card {
+  position: relative;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  width: 90%;
+  max-width: 420px;
+
+  background: rgba(0, 0, 0, 0.45); /* less blur */
+  backdrop-filter: blur(6px);
+
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+  animation: fadeUp 1.5s ease;
+
+  z-index: 2;
+}
+
+/* ✨ Entry Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading */
+.heading {
+  font-family: "Cinzel", serif;
+  letter-spacing: 3px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* Names */
+.names {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(24px, 6vw, 42px);
+  color: gold;
+  margin: 10px 0;
+  white-space: nowrap;
+
+  text-shadow: 0 0 10px gold;
+  animation: nameGlow 2.5s ease-in-out infinite;
+}
+
+.names span {
+  color: red;
+  animation: heartbeat 1.2s infinite;
+}
+
+/* ❤️ Heartbeat */
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
+}
+
+/* Images */
+.couple-images {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.couple-images img {
+  width: 120px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid gold;
+
+  box-shadow: 0 0 20px gold;
+  transition: 0.4s;
+}
+
+/* 🔥 Image Hover Premium */
+.couple-images img:hover {
+  transform: scale(1.08) rotate(1deg);
+  box-shadow: 0 0 30px gold;
+}
+
+/* Text */
+.text {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+/* Details */
+.date {
+  color: gold;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.time {
+  font-size: 14px;
+}
+
+.venue {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Footer */
+.footer {
+  margin-top: 15px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .names {
+    font-size: 32px;
+  }
+
+  .couple-images img {
+    width: 95px;
+    height: 120px;
+  }
+}
+/* ✨ Floating Particles (Premium Effect) */
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Layer 1 */
+.particles::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: particlesMove 25s linear infinite;
+  opacity: 0.15;
+}
+
+/* Layer 2 */
+.particles::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(rgba(255,215,0,0.8) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: particlesMoveReverse 30s linear infinite;
+  opacity: 0.1;
+}
+
+/* Animation */
+@keyframes particlesMove {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+@keyframes particlesMoveReverse {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(200px);
+  }
+}
+
+@keyframes nameGlow {
+  0% {
+    text-shadow: 0 0 10px gold;
+  }
+  50% {
+    text-shadow: 0 0 20px gold, 0 0 30px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 10px gold;
+  }
+}
+
+.share-btn {
+  margin-top: 15px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 25px;
+  background: #25d366;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.share-btn:hover {
+  transform: scale(1.05);
+}
