@@ -1,7 +1,10 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import "./Card.css";
-import bg from "../assets/bg.jpg"; // ✅ from src
+import bg from "../assets/bg.jpg";
+
+import CountdownTimer from "./CountdownTimer";
+import LocationMap from "./LocationMap";
 
 const Card = () => {
   const [open, setOpen] = useState(false);
@@ -69,7 +72,6 @@ const Card = () => {
                 Mallikarjuna <span>❤️</span> Radhika
               </h1>
 
-              {/* ✅ Images from public */}
               <div className="couple-images">
                 <img src="/assets/groom.jpeg" alt="groom" />
                 <img src="/assets/bride.jpeg" alt="bride" />
@@ -88,28 +90,33 @@ const Card = () => {
                 Pattikonda Mandal, Kurnool District
               </p>
 
+              {/* ✅ SAFE ADD */}
+              <div style={{ marginTop: "6px" }}>
+                <CountdownTimer />
+                <div style={{ height: "110px", marginTop: "6px" }}>
+                  <LocationMap />
+                </div>
+              </div>
+
               <p className="footer">
                 We can't wait to celebrate with you ✨
               </p>
 
               <button
-  className="share-btn"
-  onClick={() => {
-    const text = `You're invited to Mallikarjuna ❤️ Radhika Wedding 💍
+                className="share-btn"
+                onClick={() => {
+                  const text = `You're invited to Mallikarjuna ❤️ Radhika Wedding 💍
 📅 May 6th, 2026
 🕘 8:30 AM - 9:30 AM
-📍 Peddahulthi Village, Kurnool
+📍 Peddahulthi Village, Kurnool`;
 
-Join us! 💫`;
-
-    const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-    window.open(url, "_blank");
-  }}
->
-  📲 Share on WhatsApp
-</button>
+                  const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+                  window.open(url, "_blank");
+                }}
+              >
+                📲 Share on WhatsApp
+              </button>
             </div>
-
           </motion.div>
         </>
       )}
