@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef } from "react"; // redeploy fix
 import { motion } from "framer-motion";
 import "./Card.css";
 import bg from "../assets/bg.jpg";
@@ -124,4 +124,4 @@ const Card = () => {
   );
 };
 
-export default Card;  
+export default Card;  // test update
